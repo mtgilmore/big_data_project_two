@@ -1,6 +1,12 @@
 install.packages("psych")
 library(psych)
 
+install.packages("ggplot2")
+library(ggplot2)
+
+install.packages("lattice")
+library(lattice)
+
 # My file path to data
 path = "C:/Users/mtgil/OneDrive/Documents/GitHub/big_data_project_two"
 
@@ -14,3 +20,7 @@ describe(data)
 
 # Convert factor columns to int
 numeric_data = data.matrix(data)
+
+pairs(numeric_data)
+splom(~numeric_data[1:4])
+
