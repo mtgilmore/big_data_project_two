@@ -7,6 +7,12 @@ library(ggplot2)
 install.packages("lattice")
 library(lattice)
 
+install.packages("BBmisc")
+library(BBmisc)
+
+library(datasets)
+library(class)
+
 # My file path to data
 path = "C:/Users/mtgil/OneDrive/Documents/GitHub/big_data_project_two"
 
@@ -31,3 +37,7 @@ for (i in 1:15){
     print(paste("correlation is", cor(numeric_data[,i],numeric_data[,j])))
   }
 }
+
+trimmed_data = numeric_data[,1:14]
+trimmed_data = na.omit(trimmed_data)
+trimmed_data = scale(trimmed_data)
