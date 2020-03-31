@@ -16,7 +16,7 @@ data = read.csv(paste(path, "/adult.data", sep=""), header=FALSE, col.names = na
 
 # Stats for our report
 summary(data)
-describe(data)
+psych::describe(data, check=TRUE)
 
 # Convert factor columns to int
 numeric_data = data.matrix(data)
