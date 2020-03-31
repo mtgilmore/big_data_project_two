@@ -24,3 +24,10 @@ numeric_data = data.matrix(data)
 pairs(numeric_data)
 splom(~numeric_data[1:4])
 
+for (i in 1:15){
+  for (j in i:15){
+    print(paste("For column", i))
+    print(paste("and column", j))
+    print(paste("correlation is", cor(numeric_data[,i],numeric_data[,j])))
+  }
+}
