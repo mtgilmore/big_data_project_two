@@ -18,9 +18,6 @@ names = ['age', 'workclass', 'fnlwgt', 'education', 'education-num', 'marital-st
 #read data
 data = pd.read_csv('adult.data',names=names)
 
-
-print(data.describe())
-
 le = LabelEncoder()
 
 for name in names:
@@ -30,11 +27,21 @@ for name in names:
 # scatter_matrix(data)
 # pyplot.show()
 
-array = data.values
-X = array[:,0:14]
-y = array[:,14]
+test = ['age','race','sex','class']
 
-X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.20, random_state=1)
+tdata = data[test]
+
+#to use something from tests
+array = tdata.values
+X = array[:,0:len(test)-1]
+y = array[:,len(test)-1]
+
+#to use them all
+# array = data.values
+# X = array[:,0:14]
+# y = array[:,14]
+
+X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.30, random_state=1)
 
 model = LR()
 model.fit(X_train, Y_train)
@@ -48,7 +55,7 @@ for p in predictions:
     else:
         predictions[i] = 1
     i += 1
-    
+
 
 print(accuracy_score(Y_validation, predictions))
 print(confusion_matrix(Y_validation, predictions))
