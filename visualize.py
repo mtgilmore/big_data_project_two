@@ -27,8 +27,11 @@ for name in names:
 # scatter_matrix(data)
 # pyplot.show()
 
-test = ['age','race','sex','class']
-
+# test = ['age', 'education','class']
+test = ['fnlwgt', 'capital-loss','capital-gain','class']
+# test = ['age', 'education','race','class']
+# test = ['age', 'education','race','sex','class']
+# test = ['age', 'education','race','sex','hours-per-week','class']
 tdata = data[test]
 
 #to use something from tests
@@ -41,7 +44,7 @@ y = array[:,len(test)-1]
 # X = array[:,0:14]
 # y = array[:,14]
 
-X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.30, random_state=1)
+X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.3, random_state=1)
 
 model = LR()
 model.fit(X_train, Y_train)
